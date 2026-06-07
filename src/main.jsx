@@ -16,7 +16,6 @@ const privacySections = [
   {
     title: "Overview",
     body: [
-      "Checkpoint is operated by Michael McKeever.",
       "Checkpoint is a wellbeing and support tool that helps users check in, notice patterns, and prepare messages to trusted people when asking for help feels hard.",
       "Checkpoint is not therapy, a diagnosis tool, a medical device, or an emergency service.",
     ],
@@ -125,7 +124,7 @@ const privacySections = [
   {
     title: "Contact",
     body: [
-      "For questions about this Privacy Policy or how Checkpoint handles data, contact michael.mckeever27@gmail.com.",
+      "For questions about this Privacy Policy or how Checkpoint handles data, contact usecheckpointwellbeing@gmail.com.",
     ],
   },
 ];
