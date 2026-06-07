@@ -12,6 +12,21 @@ const includes = [
   "Urgent help resources",
 ];
 
+const supportOptions = [
+  {
+    title: "App support",
+    body: "For help with Checkpoint, beta access, account questions, or anything that is not working as expected, email the support inbox.",
+  },
+  {
+    title: "Privacy and data",
+    body: "For privacy questions, account deletion, or requests about your personal data, contact the same support inbox and include the email linked to your Checkpoint account.",
+  },
+  {
+    title: "Urgent support",
+    body: "Checkpoint is not an emergency service. If you feel in immediate danger or unable to stay safe, call emergency services now.",
+  },
+];
+
 const privacySections = [
   {
     title: "Overview",
@@ -90,13 +105,13 @@ const privacySections = [
   {
     title: "User Rights",
     body: [
-      "Depending on where the user lives, they may have rights to access, correct, delete, restrict or request a copy of their personal data. Users can contact michael.mckeever27@gmail.com to exercise these rights.",
+      "Depending on where the user lives, they may have rights to access, correct, delete, restrict or request a copy of their personal data. Users can contact usecheckpointwellbeing@gmail.com to exercise these rights.",
     ],
   },
   {
     title: "Account and Data Deletion",
     body: [
-      "Users can request account and data deletion from inside the app through Profile or Settings. Users can also contact michael.mckeever27@gmail.com.",
+      "Users can request account and data deletion from inside the app through Profile or Settings. Users can also contact usecheckpointwellbeing@gmail.com.",
     ],
   },
   {
@@ -136,6 +151,10 @@ function App() {
     return <PrivacyPage />;
   }
 
+  if (path === "/support") {
+    return <SupportPage />;
+  }
+
   return <LandingPage />;
 }
 
@@ -155,7 +174,7 @@ function LandingPage() {
               help feels hard.
             </p>
             <div className="actions">
-              <a className="button primary" href="mailto:michael.mckeever27@gmail.com?subject=Checkpoint%20beta">
+              <a className="button primary" href="mailto:usecheckpointwellbeing@gmail.com?subject=Checkpoint%20beta">
                 Join the beta
               </a>
               <a className="button secondary" href="/privacy">
@@ -237,6 +256,7 @@ function Header() {
         <span>Checkpoint</span>
       </a>
       <nav aria-label="Main navigation">
+        <a href="/support">Support</a>
         <a href="/privacy">Privacy</a>
       </nav>
     </header>
@@ -250,7 +270,10 @@ function Footer() {
         <strong>Checkpoint</strong>
         <span>usecheckpoint.io</span>
       </div>
-      <a href="/privacy">Privacy Policy</a>
+      <div className="footer-links">
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
     </footer>
   );
 }
@@ -296,7 +319,7 @@ function PrivacyPage() {
             </div>
             <div>
               <span>Contact email</span>
-              <a href="mailto:michael.mckeever27@gmail.com">michael.mckeever27@gmail.com</a>
+              <a href="mailto:usecheckpointwellbeing@gmail.com">usecheckpointwellbeing@gmail.com</a>
             </div>
             <div>
               <span>Website</span>
@@ -319,6 +342,63 @@ function PrivacyPage() {
               )}
             </section>
           ))}
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function SupportPage() {
+  return (
+    <div className="site support-site">
+      <Header />
+      <main>
+        <section className="support-hero section-wrap">
+          <a className="back-link" href="/">
+            Back to home
+          </a>
+          <p className="eyebrow">Checkpoint support</p>
+          <h1>Support</h1>
+          <p className="hero-text">
+            Need help with Checkpoint? Email us and we will get back to you as
+            soon as possible.
+          </p>
+          <div className="actions">
+            <a className="button primary" href="mailto:usecheckpointwellbeing@gmail.com?subject=Checkpoint%20support">
+              Email support
+            </a>
+            <a className="button secondary" href="/privacy">
+              View Privacy Policy
+            </a>
+          </div>
+        </section>
+
+        <section className="section-wrap support-grid">
+          {supportOptions.map((option) => (
+            <article className="card info-panel" key={option.title}>
+              <h2>{option.title}</h2>
+              <p>{option.body}</p>
+            </article>
+          ))}
+        </section>
+
+        <section className="section-wrap support-card">
+          <div className="privacy-card">
+            <p className="eyebrow">Contact</p>
+            <h2>usecheckpointwellbeing@gmail.com</h2>
+            <p>
+              Please include a short description of what you need help with. Do
+              not include anything urgent or immediately safety-critical in an
+              email.
+            </p>
+            <ul>
+              <li>Emergency services: 999</li>
+              <li>NHS 111</li>
+              <li>Samaritans: 116 123</li>
+              <li>Shout: text SHOUT to 85258</li>
+            </ul>
+          </div>
         </section>
       </main>
       <Footer />
